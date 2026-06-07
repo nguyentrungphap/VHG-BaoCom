@@ -32,7 +32,7 @@ function OrderList() {
 
   const getMealTimeLabel = (value: string) => {
     const mealTimes: Record<string, string> = {
-      sang: 'Sáng',
+      trua: 'Trưa',
       chieu: 'Chiều',
       toi: 'Tối',
     }
@@ -48,9 +48,9 @@ function OrderList() {
   }
   // Calculate totals by meal time with main/veg breakdown
   const mealTimeStats = {
-    sang: {
-      main: orders.filter((o) => o.mealTime === 'sang').reduce((sum, o) => sum + o.mainDishes, 0),
-      veg: orders.filter((o) => o.mealTime === 'sang').reduce((sum, o) => sum + o.vegDishes, 0),
+    trua: {
+      main: orders.filter((o) => o.mealTime === 'trua').reduce((sum, o) => sum + o.mainDishes, 0),
+      veg: orders.filter((o) => o.mealTime === 'trua').reduce((sum, o) => sum + o.vegDishes, 0),
     },
     chieu: {
       main: orders.filter((o) => o.mealTime === 'chieu').reduce((sum, o) => sum + o.mainDishes, 0),
@@ -91,15 +91,15 @@ function OrderList() {
           <>
             <div className="grid gap-6 lg:grid-cols-3">
               <div className="rounded-[1.75rem] bg-white p-8 shadow-[0_20px_60px_rgba(15,23,42,0.08)]">
-                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">☀️ Buổi sáng</p>
+                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">☀️ Buổi trưa</p>
                 <div className="mt-4 space-y-3">
                   <div className="flex items-center justify-between">
                     <span className="text-slate-600">Món mặn</span>
-                    <span className="text-2xl font-semibold text-slate-950">{mealTimeStats.sang.main}</span>
+                    <span className="text-2xl font-semibold text-slate-950">{mealTimeStats.trua.main}</span>
                   </div>
                   <div className="flex items-center justify-between border-t border-slate-100 pt-3">
                     <span className="text-slate-600">Món chay</span>
-                    <span className="text-2xl font-semibold text-slate-950">{mealTimeStats.sang.veg}</span>
+                    <span className="text-2xl font-semibold text-slate-950">{mealTimeStats.trua.veg}</span>
                   </div>
                 </div>
               </div>
