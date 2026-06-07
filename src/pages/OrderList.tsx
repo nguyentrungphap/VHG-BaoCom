@@ -46,10 +46,6 @@ function OrderList() {
       localStorage.setItem('orders', JSON.stringify(updatedOrders))
     }
   }
-
-  const totalMainDishes = orders.reduce((sum, order) => sum + order.mainDishes, 0)
-  const totalVegDishes = orders.reduce((sum, order) => sum + order.vegDishes, 0)
-
   // Calculate totals by meal time with main/veg breakdown
   const mealTimeStats = {
     sang: {
