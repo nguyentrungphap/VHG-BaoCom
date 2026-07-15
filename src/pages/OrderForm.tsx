@@ -14,7 +14,7 @@ interface Order {
 function OrderForm() {
   const navigate = useNavigate()
   const [formData, setFormData] = useState({
-    department: 'nhan-su',
+    department: 'van-phong',
     mealTime: 'sang',
     mainDishes: 5,
     vegDishes: 5,
@@ -24,10 +24,13 @@ function OrderForm() {
   const [showSuccess, setShowSuccess] = useState(false)
 
   const departments = [
-    { value: 'san-xuat', label: 'Sản xuất' },
-    { value: 'kho', label: 'Kho/Logistics' },
-    { value: 'bao-hanh', label: 'Bảo trì' },
+    { value: 'van-phong', label: 'Văn Phòng' },
+    { value: 'qc', label: 'QC' },
+    { value: 'kho', label: 'Kho' },
+    { value: 'bao-tri', label: 'Bảo Trì' },
+    { value: 'son', label: 'Sơn' },
     { value: 'nhan-su', label: 'Nhân sự' },
+    { value: 'san-xuat', label: 'Sản xuất' },
     { value: 'it', label: 'IT' },
   ]
 

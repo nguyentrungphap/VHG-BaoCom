@@ -20,18 +20,27 @@ function OrderList() {
   }, [])
 
   const getDepartmentLabel = (value: string) => {
+    const normalizedValue = value?.toLowerCase().trim()
     const departments: Record<string, string> = {
-      'san-xuat': 'Sản xuất',
-      'kho': 'Kho/Logistics',
-      'bao-hanh': 'Bảo trì',
+      'van-phong': 'Văn Phòng',
+      vanphong: 'Văn Phòng',
+      qc: 'QC',
+      kho: 'Kho',
+      'bao-tri': 'Bảo Trì',
+      baotri: 'Bảo Trì',
+      'bao-hanh': 'Bảo Trì',
+      son: 'Sơn',
       'nhan-su': 'Nhân sự',
+      'san-xuat': 'Sản xuất',
+      sanxuat: 'Sản xuất',
       it: 'IT',
     }
-    return departments[value] || value
+    return departments[normalizedValue] || value
   }
 
   const getMealTimeLabel = (value: string) => {
     const mealTimes: Record<string, string> = {
+      sang: 'Sáng',
       trua: 'Trưa',
       chieu: 'Chiều',
       toi: 'Tối',
@@ -49,8 +58,8 @@ function OrderList() {
   // Calculate totals by meal time with main/veg breakdown
   const mealTimeStats = {
     trua: {
-      main: orders.filter((o) => o.mealTime === 'trua').reduce((sum, o) => sum + o.mainDishes, 0),
-      veg: orders.filter((o) => o.mealTime === 'trua').reduce((sum, o) => sum + o.vegDishes, 0),
+      main: orders.filter((o) => o.mealTime === 'trua' || o.mealTime === 'sang').reduce((sum, o) => sum + o.mainDishes, 0),
+      veg: orders.filter((o) => o.mealTime === 'trua' || o.mealTime === 'sang').reduce((sum, o) => sum + o.vegDishes, 0),
     },
     chieu: {
       main: orders.filter((o) => o.mealTime === 'chieu').reduce((sum, o) => sum + o.mainDishes, 0),
