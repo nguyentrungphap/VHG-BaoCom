@@ -20,32 +20,57 @@ function OrderList() {
   }, [])
 
   const getDepartmentLabel = (value: string) => {
-    const normalizedValue = value?.toLowerCase().trim()
+    const normalizedValue = value?.toLowerCase().trim().replace(/\s+/g, '-')
     const departments: Record<string, string> = {
-      'van-phong': 'Văn Phòng',
-      vanphong: 'Văn Phòng',
-      qc: 'QC',
-      kho: 'Kho',
-      'bao-tri': 'Bảo Trì',
-      baotri: 'Bảo Trì',
-      'bao-hanh': 'Bảo Trì',
-      son: 'Sơn',
+      'van-phong': 'Văn phòng',
       'nhan-su': 'Nhân sự',
-      'san-xuat': 'Sản xuất',
-      sanxuat: 'Sản xuất',
+      'ke-toan': 'Kế toán',
+      'ke-hoach': 'Kế hoạch',
+      'ke-hoach-san-xuat': 'Kế hoạch sản xuất',
+      'ky-thuat': 'Kỹ thuật',
+      'bao-tri': 'Bảo trì',
+      'bao-hanh': 'Bảo trì',
+      baotri: 'Bảo trì',
+      kho: 'Kho',
+      qc: 'QC',
+      'dinh-hinh-cua': 'Định hình cửa',
+      'dinh-hinh-khung': 'Định hình khung',
+      'lap-rap-cua': 'Lắp ráp cửa',
+      'lap-rap-khung': 'Lắp ráp khung',
+      uv: 'UV',
+      'nham-tinh': 'Nhám tinh',
+      van: 'Ván',
+      'nham-nguoi': 'Nhám nguội',
+      'vpx1-tinh-che': 'VP tinh chế',
+      'vpx1-nham': 'VP nhám',
+      vpx2: 'VP x2',
+      'sap-mat': 'Sáp mặt',
+      'sap-canh': 'Sáp cạnh',
+      'chuyen-lot-1': 'Chuyền lót 1',
+      'chuyen-bong-1': 'Chuyền bóng 1',
+      'chuyen-lot-2': 'Chuyền lót 2',
+      'chuyen-bong-2': 'Chuyền bóng 2',
+      'phoi-bo': 'Phối bộ',
+      'dong-goi': 'Đóng gói',
+      son: 'Sơn',
       it: 'IT',
+      sanxuat: 'Sản xuất',
+      'san-xuat': 'Sản xuất',
     }
     return departments[normalizedValue] || value
   }
 
   const getMealTimeLabel = (value: string) => {
+    const normalizedValue = value?.toLowerCase().trim().replace(/\s+/g, '-')
     const mealTimes: Record<string, string> = {
       sang: 'Sáng',
       trua: 'Trưa',
       chieu: 'Chiều',
       toi: 'Tối',
+      'xuyen-dem': 'Xuyên đêm',
+      'xuyen_dem': 'Xuyên đêm',
     }
-    return mealTimes[value] || value
+    return mealTimes[normalizedValue] || mealTimes[value] || value
   }
 
   const handleDelete = (id: string) => {
